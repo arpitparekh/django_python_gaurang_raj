@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/pass_data.css' %}">
+</head>
+
+<body class="min-h-screen p-8">
+
+
+  {%include 'my_header.html'%}
+
+  <div class="container">
+    <!-- Main Title -->
+    <h1 class="main-title">{{title}}</h1>
+
+    <!-- Fruits List -->
+    <div class="fruits-container">
+      <h2 class="section-title">Fruits List</h2>
+      <ol class="fruits-list">
+        {% for i in fruits %}
+        <li class="fruit-item">{{i}}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <!-- Student Profile -->
+    <div class="profile-card">
+      <div class="profile-image-container">
+        <img src="{{student.img}}" alt="Student Profile" class="profile-image">
+      </div>
+
+      <div class="profile-info">
+        <h1 class="profile-name">{{student.name}}</h1>
+        <h2 class="profile-age">Age: {{student.age}}</h2>
+        <h3 class="profile-address">{{student.address}}</h3>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
