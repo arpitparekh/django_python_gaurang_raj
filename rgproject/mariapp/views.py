@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .models import Product
 
 # Create your views here.
 def show_intro(request):
@@ -20,3 +21,19 @@ def show_pass_data(request):
     }
 
     return render(request,'pass_data.html',data)
+
+def show_product(request):
+    if request.method == 'POST':
+        print("Calling")
+        name = request.POST.get('product_name')
+        price = request.POST.get('product_price')
+        description = request.POST.get('product_description')
+        image = request.FILES.get('product_image')
+
+        p = Product(name=name,price=price,description=description,image=image)
+        p.save()
+        print("Saved")
+        return redirect('product_crud')
+
+
+    return render(request,'product_crud.html')
