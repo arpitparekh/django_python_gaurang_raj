@@ -23,6 +23,9 @@ def show_pass_data(request):
     return render(request,'pass_data.html',data)
 
 def show_product(request):
+
+    products = Product.objects.all()
+
     if request.method == 'POST':
         print("Calling")
         name = request.POST.get('product_name')
@@ -36,4 +39,15 @@ def show_product(request):
         return redirect('product_crud')
 
 
-    return render(request,'product_crud.html')
+
+    return render(request,'product_crud.html',{"products":products})
+
+def delete_product(request):
+
+    product_id = request.POST.get('product_id')
+
+    p = Product.objects.get(id=product_id)  # find specific product by id
+    p.delete()
+    return redirect('product_crud')
+
+

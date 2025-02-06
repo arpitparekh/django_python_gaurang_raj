@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +28,7 @@
         <input type="number" id="product_price" name="product_price">
 
 
-        <label  for="product_description">Product Description:</label>
+        <label for="product_description">Product Description:</label>
         <textarea id="product_description" name="product_description"></textarea>
 
         <label for="product_image">Product Image:</label>
@@ -40,9 +41,46 @@
     </div>
     <div>
 
-    <div id="product_list">
-      <h1>Product List </h1>
-  </div>
+      <div id="product_list">
+        <h1>Product List </h1>
+        <table>
+          <thead>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Description</th>
+            <th>Product Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+
+            {% if products %}
+              {% for product in products %}
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.description }}</td>
+              <td><img style="width: 100px;  height: 100px;" src="{{ product.image.url }}"></td>
+              <td><a href="">Update</a></td>
+              <td>
+                <form method="post" action={% url 'delete_product' %}>
+                  {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{ product.id }}">
+                  <button type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+              <td colspan="6">No products found</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+
+      </div>
 
 </body>
+
 </html>
