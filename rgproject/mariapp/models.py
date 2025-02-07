@@ -13,3 +13,7 @@ class Product(models.Model):
     price = models.FloatField()
     description = models.TextField()
     image = models.ImageField(upload_to='userImage/')
+
+    def __str__(self):
+        return "Product: "+str(self.name)+" "+str(self.price)+" "+str(self.description)+" "+str(self.image)
+

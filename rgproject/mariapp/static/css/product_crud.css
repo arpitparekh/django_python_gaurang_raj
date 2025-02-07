@@ -1,9 +1,9 @@
-#product_crud{
+#product_crud {
   display: flex;
   flex-direction: row;
 }
 
-#product_form{
+#product_form {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -11,16 +11,16 @@
   background-color: lightblue;
 }
 
-#product_form form{
+#product_form form {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
-#product_list{
+#product_list {
   display: flex;
   flex: 1;
   flex-direction: column;
   margin-right: 10px;
+  background-color: lightcoral;
 }
-
