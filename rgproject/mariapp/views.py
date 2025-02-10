@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Product
+from .models import Product,Blog
 
 # Create your views here.
 def show_intro(request):
@@ -70,5 +70,10 @@ def delete_product(request):
     p = Product.objects.get(id=product_id)  # find specific product by id
     p.delete()
     return redirect('product_crud')
+
+
+def show_blogs(request):
+    blogs = Blog.objects.all()
+    return render(request, 'blogs.html',{"blogs":blogs})
 
 
