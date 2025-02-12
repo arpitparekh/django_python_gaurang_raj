@@ -76,4 +76,14 @@ def show_blogs(request):
     blogs = Blog.objects.all()
     return render(request, 'blogs.html',{"blogs":blogs})
 
+def show_home(request):
+    return render(request, 'home.html')
 
+def show_contact(request):
+    return render(request, 'contact.html')
+
+def show_service(request):
+    return render(request, 'service.html')
+
+def show_about(request):
+    return render(request, 'about_us.html')

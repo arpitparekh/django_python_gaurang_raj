@@ -7,7 +7,12 @@ urlpatterns = [
   path('product_crud', views.show_product, name='product_crud'),
   path('delete_product',views.delete_product,name='delete_product'),
   path('product_crud/<int:product_id>/',views.show_product,name='product_crud'),
-  path('blogs',views.show_blogs,name='blogs')
+  path('blogs',views.show_blogs,name='blogs'),
+  path('',views.show_home,name='home'),
+  path('about',views.show_about,name='about'),
+  path('service',views.show_service,name='service'),
+  path('contact',views.show_contact,name='contact'),
+
 ]
 
 """

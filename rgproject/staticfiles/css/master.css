@@ -1,0 +1,28 @@
+#master{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+#navigation{
+  padding: 10px;
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+#content{
+  padding: 10px;
+  display: flex;
+  flex:3;
+  flex-direction: column;
+  background-color: lightgreen;
+}
+
+h1,li{
+  font-family: system-ui;
+}
