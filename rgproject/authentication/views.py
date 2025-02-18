@@ -22,6 +22,9 @@ def show_register(request):
 
 def show_login(request):
 
+  if request.session.get('isLogin'):
+    return redirect('home')
+
   if request.method=="POST":
     form = LoginForm(request, data=request.POST)
     if form.is_valid():
@@ -31,6 +34,7 @@ def show_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
           login(request, user)
+          request.session['isLogin'] = True
           return redirect('home')
         else:
           print("User is not authenticated")
@@ -48,3 +52,20 @@ def show_login(request):
 
 def show_home(request):
   return render(request, 'home_data.html')
+
+
+def show_session(request):
+  # cretae a session
+  # request.session['name'] = 'John'
+  # request.session['age'] = 25
+
+  print(request.session.get('name'))
+  print(request.session.get('age'))
+
+  return render(request, 'session_dis.html')
+
+
+def show_logout(request):
+  # request.session.flush()
+  request.session['isLogin'] = False
+  return redirect('login')

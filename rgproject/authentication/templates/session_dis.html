@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Session Display</title>
 </head>
 <body>
 
-  <h1>Welcome to the home page!</h1>
-
-
-  <button><a href="{% url 'logout' %}">Logout</a></button>
-
+  <h1>Session Display</h1>
+  <p>Session ID: {{ session_id }}</p>
+  <p>Session Data: {{ session_data }}</p>
 
 </body>
 </html>
