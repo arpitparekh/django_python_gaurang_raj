@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Product,Blog
+from .models import Product,Blog,Employee
+from django.db.models import Q
 
 # Create your views here.
 def show_intro(request):
@@ -87,3 +88,15 @@ def show_service(request):
 
 def show_about(request):
     return render(request, 'about_us.html')
+
+
+def showQuery(request):
+    # employees = Employee.objects.all().values()
+    # employees = Employee.objects.values_list('name')
+    # employees =Employee.objects.filter(name__startswith='R',id=1).values() | Employee.objects.filter(id=4).values()
+
+    # employees = Employee.objects.filter(Q(name__startswith='R') | Q(id=4)).values()
+    # employees = Employee.objects.filter(id__range=(1,3)).values()
+    employees = Employee.objects.order_by('-name').values()
+
+    return render(request, 'query_set.html',{"employees":employees})

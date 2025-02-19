@@ -12,6 +12,7 @@ urlpatterns = [
   path('about',views.show_about,name='about'),
   path('service',views.show_service,name='service'),
   path('contact',views.show_contact,name='contact'),
+  path('query',views.showQuery,name='query'),
 
 ]
 
