@@ -153,6 +153,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mariapp/static'),  # Add paths to your static files
 ]
 
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
