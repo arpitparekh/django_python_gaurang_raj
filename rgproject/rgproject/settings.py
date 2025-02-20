@@ -75,16 +75,27 @@ WSGI_APPLICATION = 'rgproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {  # local database
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
-        'USER': 'root',
-        'PASSWORD': 'Walden0042$$',
-        'HOST': 'localhost',
-        'PORT': '3306',
+# DATABASES = {  # local database
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'mydb',
+#         'USER': 'root',
+#         'PASSWORD': 'Walden0042$$',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'mydb_rolh',
+            'USER': 'mydb_rolh_user',
+            'PASSWORD': 'aNgGNjRdnAfDOc8fUSoPUoeYzapWsMY0',
+            'HOST': 'dpg-curaftt6l47c73ca6qv0-a',
+            'PORT': '5432',
+        }
     }
-}
 
 
 # Password validation
