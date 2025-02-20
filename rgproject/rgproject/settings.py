@@ -99,10 +99,9 @@ WSGI_APPLICATION = 'rgproject.wsgi.application'
 # }
 
 DATABASES = {
-        'default': {
-            'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-        }
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
+
 
 
 # Password validation
