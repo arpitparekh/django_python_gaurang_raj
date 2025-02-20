@@ -34,7 +34,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-3g1k)d*$$$_(dtg@+n^b1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['django_python_gaurang_raj.onrender.com', 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['django_python_gaurang_raj.onrender.com', 'localhost', '127.0.0.1']
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
