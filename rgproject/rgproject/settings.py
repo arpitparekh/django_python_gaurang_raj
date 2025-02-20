@@ -28,6 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-3g1k)d*$$$_(dtg@+n^b1hw1&chmlaq&3$ojt=wiml%so38y@#')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
+ALLOWED_HOSTS = ['django_python_gaurang_raj.onrender.com', 'localhost', '127.0.0.1']
+
 # Application definition
 
 INSTALLED_APPS = [
