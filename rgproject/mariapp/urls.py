@@ -20,7 +20,9 @@ urlpatterns = [
   path('service',views.show_service,name='service'),
   path('contact',views.show_contact,name='contact'),
   path('query',views.showQuery,name='query'),
+  path('', include(router.urls)),
   path('api/', include('rest_framework.urls'))
+
 
 ]
 
