@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Product,Blog,Employee
 from django.db.models import Q
+from .serializers import ProductSerializer
+from rest_framework import viewsets
 
 # Create your views here.
 def show_intro(request):
@@ -100,3 +102,9 @@ def showQuery(request):
     employees = Employee.objects.order_by('-name').values()
 
     return render(request, 'query_set.html',{"employees":employees})
+
+class ProductViewset(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+

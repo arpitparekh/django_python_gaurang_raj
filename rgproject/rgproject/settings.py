@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'mariapp',
     'authentication',
     'whitenoise.runserver_nostatic',  # Add this
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

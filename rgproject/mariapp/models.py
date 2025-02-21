@@ -24,7 +24,6 @@ class Department(models.Model):  # 1HR 2Sales 3Purchase
         return self.name
 
 # one to many relationship
-
 class Employee(models.Model):
     name = models.CharField(max_length=200)
     department = models.ForeignKey(Department,on_delete=models.CASCADE)

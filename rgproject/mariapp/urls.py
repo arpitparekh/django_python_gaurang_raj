@@ -1,5 +1,12 @@
 from django.urls import path,include
 from . import views
+from rest_framework import routers
+from .views import ProductViewset
+
+router = routers.DefaultRouter()
+
+# define the router path and viewset to be used
+router.register(r'my_product', ProductViewset)
 
 urlpatterns = [
   path('intro', views.show_intro, name='intro'),
@@ -13,6 +20,7 @@ urlpatterns = [
   path('service',views.show_service,name='service'),
   path('contact',views.show_contact,name='contact'),
   path('query',views.showQuery,name='query'),
+  path('api/', include('rest_framework.urls'))
 
 ]
 
